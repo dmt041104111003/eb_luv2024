@@ -235,3 +235,73 @@ body {
         transform: translateY(-2000px);
     }
 }
+
+
+/* Thiết kế mặc định đã có */
+
+
+/* Thiết kế cho màn hình nhỏ (điện thoại) */
+
+@media (max-width: 768px) {
+    .wrapper {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+    }
+    .items {
+        flex-wrap: wrap;
+        justify-content: center;
+        perspective: calc(var(--index) * 20);
+        gap: 0.2rem;
+    }
+    .item {
+        width: calc(var(--index) * 2);
+        /* Giảm kích thước để phù hợp màn hình nhỏ */
+        height: calc(var(--index) * 8);
+        border-radius: 5px;
+        /* Giảm bo tròn để phù hợp */
+        box-shadow: 0 2px 8px var(--box-shadow-color);
+        /* Giảm độ sâu của bóng */
+        transition: transform 1s ease, filter 1.5s ease, width 1s ease, box-shadow 1s ease;
+    }
+    .item:active,
+    .item:focus {
+        width: 24vw;
+        /* Điều chỉnh kích thước theo viewport nhỏ */
+        transform: translateZ(calc(var(--index) * 8)) scale(1.1);
+        margin: 0 0.2rem;
+        box-shadow: 0 8px 20px var(--box-shadow-color);
+    }
+    /* Các điều chỉnh liên quan hover */
+    .items .item:hover+* {
+        transform: translateZ(calc(var(--index) * 6.5)) rotateY(30deg);
+    }
+    .items .item:hover+*+* {
+        transform: translateZ(calc(var(--index) * 4.2)) rotateY(25deg);
+    }
+    .items .item:hover+*+*+* {
+        transform: translateZ(calc(var(--index) * 2)) rotateY(20deg);
+    }
+}
+
+
+/* Thiết kế cho màn hình siêu nhỏ (dưới 480px) */
+
+@media (max-width: 480px) {
+    .item {
+        width: calc(var(--index) * 1.5);
+        /* Giảm hơn nữa kích thước */
+        height: calc(var(--index) * 6);
+        border-radius: 3px;
+    }
+    .item:active,
+    .item:focus {
+        width: 40vw;
+        transform: translateZ(calc(var(--index) * 6)) scale(1.1);
+    }
+    .items {
+        gap: 0.1rem;
+        /* Giảm khoảng cách giữa các items */
+        perspective: calc(var(--index) * 15);
+    }
+}
