@@ -13,8 +13,9 @@
 }
 
 .notification-box {
-    background: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&auto=format');
+    background: url('assets/background.png');
     padding: 2.5rem;
+    background-size: cover;
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     text-align: center;
