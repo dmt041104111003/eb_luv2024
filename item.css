@@ -143,14 +143,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-}
-
-.bg-animation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    z-index: -1;
 }
 
 #stars {
@@ -243,5 +236,19 @@ body {
     }
     100% {
         transform: translateY(-2000px);
+    }
+}
+
+@media (max-width: 768px) {
+    .bg-animation {
+        display: block;
+        /* Đảm bảo nó vẫn hiển thị */
+    }
+    #stars,
+    #stars2,
+    #stars3,
+    #stars4 {
+        display: block;
+        /* Không được ẩn */
     }
 }
