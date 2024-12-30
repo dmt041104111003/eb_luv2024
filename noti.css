@@ -13,9 +13,8 @@
 }
 
 .notification-box {
-    background: url('assets/background.png');
+    background: url('https://24hstore.vn/upload_images/images/hinh-nen-mau-xanh-duong/hinh-nen-chill-mau-xanh-duong_(2).jpg');
     padding: 2.5rem;
-    background-size: cover;
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     text-align: center;
