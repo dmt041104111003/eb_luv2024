@@ -14,22 +14,22 @@
 
 .notification-box {
     background: url('https://24hstore.vn/upload_images/images/hinh-nen-mau-xanh-duong/hinh-nen-chill-mau-xanh-duong_(2).jpg');
+    background-size: cover;
     padding: 2.5rem;
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     text-align: center;
-    max-width: 400px;
     width: 90%;
-    animation: fadeIn 0.3s ease-out;
+    height: 60%;
     border: 2px solid #e2e8f0;
 }
 
 .notification-title {
     font-family: 'Dancing Script', cursive;
-    font-size: 2.2rem;
+    font-size: 3.4rem;
     margin-bottom: 1.2rem;
     color: #000000;
-    font-weight: 700;
+    font-weight: 1000;
 }
 
 .notification-message {
@@ -37,18 +37,20 @@
     color: #000000;
     margin-bottom: 1.8rem;
     line-height: 1.8;
-    font-size: 1.4rem;
+    font-size: 2.8rem;
 }
 
 .notification-button {
+    font-family: 'Dancing Script', cursive;
     background: #4299e1;
     color: white;
     border: none;
     padding: 0.8rem 2.5rem;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 1.1rem;
-    font-family: 'Dancing Script', cursive;
+    height: 30%;
+    width: 30%;
+    font-size: 2rem;
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(66, 153, 225, 0.2);
 }
@@ -67,5 +69,47 @@
     to {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+
+/* Điều chỉnh cho màn hình điện thoại */
+
+@media screen and (max-width: 480px) {
+    .notification-box {
+        width: 100%;
+        /* Chiếm 100% chiều rộng */
+        height: 100%;
+        /* Chiếm toàn bộ chiều cao */
+        max-width: none;
+        /* Không giới hạn chiều rộng */
+        max-height: none;
+        /* Không giới hạn chiều cao */
+        padding: 1.5rem;
+        /* Đảm bảo nội dung không sát mép */
+        border-radius: 0;
+        /* Loại bỏ bo góc */
+        box-shadow: none;
+        /* Loại bỏ đổ bóng */
+    }
+    .notification-title {
+        font-size: 3rem;
+        /* Tăng kích thước tiêu đề */
+        margin-bottom: 1.5rem;
+        /* Tăng khoảng cách dưới tiêu đề */
+    }
+    .notification-message {
+        font-size: 2rem;
+        /* Tăng kích thước chữ nội dung */
+        line-height: 2.5;
+        /* Tăng khoảng cách giữa các dòng */
+    }
+    .notification-button {
+        padding: 1.5rem 3rem;
+        /* Tăng kích thước nút */
+        font-size: 1.6rem;
+        /* Tăng kích thước chữ trên nút */
+        margin-top: 2rem;
+        /* Tạo khoảng cách giữa nút và nội dung */
     }
 }

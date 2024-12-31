@@ -38,7 +38,7 @@ body.loaded {
 }
 
 .loader-wrap .loader-wrap-heading .load-text {
-    font-size: 20px;
+    font-size: 50px;
     font-weight: 200;
     letter-spacing: 15px;
     text-transform: uppercase;
