@@ -30,3 +30,7 @@ document.addEventListener("click", () => {
 
     });
 });
+
+audioElement.play().catch((error) => {
+    console.error("Không thể phát nhạc:", error);
+});
