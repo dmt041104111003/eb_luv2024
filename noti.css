@@ -42,22 +42,24 @@
 
 .notification-button {
     font-family: 'Dancing Script', cursive;
-    background: #4299e1;
+    background: url('https://img5.thuthuatphanmem.vn/uploads/2021/09/22/background-xanh-duong-trang_094947567.jpg');
     color: white;
     border: none;
     padding: 0.8rem 2.5rem;
     border-radius: 8px;
+    border: 2px solid #024fb4;
     cursor: pointer;
     height: 30%;
     width: 30%;
-    font-size: 2rem;
+    font-size: 3rem;
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(66, 153, 225, 0.2);
 }
 
 .notification-button:hover {
-    background: #3182ce;
+    background: url('https://img5.thuthuatphanmem.vn/uploads/2021/09/22/background-xanh-duong-trang_094947567.jpg');
     transform: translateY(-2px);
+    border: 2px solid #024fb4;
     box-shadow: 0 6px 8px rgba(66, 153, 225, 0.3);
 }
 
