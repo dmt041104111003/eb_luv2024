@@ -1,0 +1,31 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    background: #171717;
+    color: #999;
+    font: 100%/18px helvetica, arial, sans-serif;
+}
+
+#canvas-container {
+    background: #000 url(https://static.vecteezy.com/system/resources/previews/002/298/700/non_2x/city-under-the-starry-sky-vector.jpg);
+    background-size: cover;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+canvas {
+    cursor: crosshair;
+    display: block;
+    position: relative;
+    z-index: 3;
+}
+
+canvas:active {
+    cursor: crosshair;
+}

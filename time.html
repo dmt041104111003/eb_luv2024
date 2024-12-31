@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Handlee&family=Lato&display=swap" rel="stylesheet">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Handlee&family=Lato&display=swap");
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Lato", "sans-serif";
+            overflow-x: hidden;
+            margin: 0;
+            height: 100vh;
+            background: url('https://png.pngtree.com/thumb_back/fh260/background/20210828/pngtree-cat-cartoon-background-image_771379.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        
+        h4 {
+            font-size: 20px;
+            margin: 5px;
+            text-transform: uppercase;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .counter {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        
+        .counter.hide {
+            transform: translate(-50%, -50%) scale(0);
+            animation: hide .2s ease-out;
+        }
+        
+        @keyframes hide {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(0);
+            }
+        }
+        
+        .final {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            text-align: center;
+        }
+        
+        .final.show {
+            transform: translate(-50%, -50%) scale(1);
+            animation: show .2s ease-out;
+        }
+        
+        @keyframes show {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+            }
+            30% {
+                transform: translate(-50%, -50%) scale(1.4);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+        
+        .nums {
+            color: white;
+            font-size: 50px;
+            position: relative;
+            overflow: hidden;
+            width: 250px;
+            height: 50px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .nums span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(120deg);
+            transform-origin: bottom center;
+        }
+        
+        .nums span.in {
+            transform: translate(-50%, -50%) rotate(0deg);
+            animation: goIn 0.5s ease-in-out;
+        }
+        
+        .nums span.out {
+            animation: goOut 0.5s ease-in-out;
+        }
+        
+        @keyframes goIn {
+            0% {
+                transform: translate(-50%, -50%) rotate(120deg);
+            }
+            30% {
+                transform: translate(-50%, -50%) rotate(-20deg);
+            }
+            60% {
+                transform: translate(-50%, -50%) rotate(10deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+        }
+        
+        @keyframes goOut {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            60% {
+                transform: translate(-50%, -50%) rotate(20deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(-120deg);
+            }
+        }
+        
+        .notification-button {
+            font-family: 'Dancing Script', cursive;
+            background: url('https://img.freepik.com/premium-photo/star-fields-space-as-supernova-colorful-light-nebula-blue-background_599740-11.jpg');
+            color: white;
+            border: none;
+            padding: 0.8rem 2.5rem;
+            border-radius: 8px;
+            border: 2px solid #024fb4;
+            cursor: pointer;
+            font-size: 3rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(66, 153, 225, 0.2);
+        }
+        
+        .notification-button:hover {
+            background: url('https://img.freepik.com/premium-photo/star-fields-space-as-supernova-colorful-light-nebula-blue-background_599740-11.jpg');
+            transform: translateY(-2px);
+            border: 2px solid #024fb4;
+            box-shadow: 0 6px 8px rgba(98, 149, 190, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="counter">
+        <div class="nums">
+            <span class="in">5</span>
+            <span>4</span>
+            <span>3</span>
+            <span>2</span>
+            <span>1</span>
+            <span>0</span>
+        </div>
+        <h4>Get Ready</h4>
+    </div>
+
+    <div class="final">
+        <button class="notification-button"><a href="phaohoa.html" style="text-decoration: none;">Hãy click vào đây nghen!</a></button>
+    </div>
+
+    <script>
+        const nums = document.querySelectorAll('.nums span')
+        const counter = document.querySelector('.counter')
+        const finalMessage = document.querySelector('.final')
+        const replay = document.querySelector('.notification-button')
+
+        runAnimation()
+
+        function resetDOM() {
+            counter.classList.remove('hide')
+            finalMessage.classList.remove('show')
+            nums.forEach((num) => {
+                num.classList.value = ''
+            })
+            nums[0].classList.add('in')
+        }
+
+        function runAnimation() {
+            nums.forEach((num, idx) => {
+                const nextToLast = nums.length - 1
+                num.addEventListener('animationend', (e) => {
+                    if (e.animationName === 'goIn' && idx !== nextToLast) {
+                        num.classList.remove('in')
+                        num.classList.add('out')
+                    } else if (e.animationName === 'goOut' && num.nextElementSibling) {
+                        num.nextElementSibling.classList.add('in')
+                    } else {
+                        counter.classList.add('hide')
+                        finalMessage.classList.add('show')
+                    }
+                })
+            })
+        }
+
+        replay.addEventListener('click', () => {
+            resetDOM()
+            runAnimation()
+        })
+    </script>
+</body>
+
+</html>

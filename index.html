@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./noti.css">
     <link rel="stylesheet" href="./light.css">
     <link rel="stylesheet" href="./load.css">
+    <link rel="stylesheet" href="./set.css">
     <link rel="shortcut icon" href="./icon-dev.png" type="image/x-icon">
 </head>
 
@@ -291,6 +292,9 @@
         <audio id="audio8-sound" src="./assets/audio8.mp3"></audio>
         <audio id="audio9-sound" src="./assets/audio9.mp3"></audio>
         <audio id="audio10-sound" src="./assets/audio10.mp3"></audio>
+        <audio id="audio11-sound" src="./assets/audio11.mp3"></audio>
+        <audio id="audio12-sound" src="./assets/audio12.mp3"></audio>
+        <audio id="audio13-sound" src="./assets/audio13.mp3"></audio>
         <div class="bg-animation">
             <div id='stars'></div>
             <div id='stars2'></div>
@@ -304,26 +308,39 @@
     <script src="./script.js"></script>
     <script src="./music.js"></script>
     <!-- Thêm vào ngay sau opening body tag -->
-    <div id="notification" class="notification-container">
+    <div id="notification" class="notification-container" style="display: none;">
         <div class="notification-box">
             <h2 class="notification-title">Hi nhô!</h2>
             <p class="notification-message">Cùng mình 'countdown' đón giao thừa he!</p>
             <button class="notification-button" onclick="closeNotification()">okii</button>
         </div>
     </div>
-    <div id="birthday-notification" class="notification-container" style="display: none;">
+    <div class="notification2 notification-container">
         <div class="notification-box">
-            <h1>Happy Birthday</h1>
-            <canvas id="birthday"></canvas>
-            <button class="notification-button " onclick="closeBirthdayNotification()">Close</button>
+            <h2 class="notification-title">Xem pháo hoa!</h2>
+            <p class="notification-message">Đến giờ xem pháo hoa rùiii</p>
+            <button class="notification-button2" onclick="closeNotification()">
+              Đã xem!
+          </button>
+            <button class="notification-button2" onclick="closeNotification()"><a href="./time.html" style="text-decoration: none;">Chưa xem!</a></button>
+
         </div>
     </div>
 
     <script src="./countdown.js">
     </script>
+    <script src="./set.js">
+    </script>
     <script src="./load.js">
     </script>
     <script>
+        // Hàm kiểm tra thời gian
+        function checkTime(setTime) {
+            const currentTime = new Date();
+            const targetTime = new Date(setTime);
+            return currentTime < targetTime;
+        }
+
         function closeNotification() {
             const notification = document.getElementById('notification');
             notification.style.display = 'none';
@@ -347,8 +364,14 @@
         }
 
         window.addEventListener('load', function() {
-            const notification = document.getElementById('notification');
-            notification.style.display = 'flex';
+            // Đặt thời gian đích (ví dụ: 31/12/2024 23:59:59)
+            const setTime = '2024-12-31T23:59:59';
+
+            // Kiểm tra nếu thời gian hiện tại còn trước thời gian đích
+            if (checkTime(setTime)) {
+                const notification = document.getElementById('notification');
+                notification.style.display = 'flex';
+            }
         });
     </script>
 </body>
