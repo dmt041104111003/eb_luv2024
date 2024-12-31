@@ -32,7 +32,6 @@ body {
 
 .items {
     display: flex;
-    flex-wrap: wrap;
     gap: 0.4rem;
     perspective: calc(var(--index) * 35);
 }
