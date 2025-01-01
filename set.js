@@ -65,7 +65,7 @@
         },
 
         getTargetDate: function() {
-            const year = 2024;
+            const year = 2025;
             const month = 11; // Lưu ý: tháng bắt đầu từ 0 (0-11)
             const day = 31;
             const hour = 23;
